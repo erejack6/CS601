@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# **[CS601 Term Project]**
+
+This project is a term assignment for Boston Univeristy CS601 - Web  Application Development. 
+It demonstrates I’ve learned, including HTML5, CSS3, JavaScript, React, and more.
+
+## **Features**
+- **Biography**: A brief fictitious introduction about the developer.
+- **Interests**: A showcase of general interests.
+- **Contact Form**: A working contact form with basic functionality.
+- **Resume**: A placeholder resume styled using CSS.
+- **Photo Gallery**: A collection of sample images using royalty-free content.
+- **Skill Showcase**: Interactive examples of web technologies learned during the course.
+
+## **Technologies Used**
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Responsive Design with CSS Grid & Flexbox for extra credit
+
+## **How to Access**
+This project is hosted via GitHub Pages.
+(https://github.com/erejack6/CS601.git)]
+
+>>>>>>> 670a78bfd6c6bee100e3ad1f60e8fef891371d71
