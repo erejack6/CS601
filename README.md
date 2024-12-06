@@ -1,6 +1,7 @@
 # **[CS601 Term Project]**
 
-This project is a term assignment for my web development course. It demonstrates skills I’ve learned, including HTML5, CSS3, JavaScript, React, and more.
+This project is a term assignment for Boston Univeristy CS601 - Web  Application Development. 
+It demonstrates I’ve learned, including HTML5, CSS3, JavaScript, React, and more.
 
 ## **Features**
 - **Biography**: A brief fictitious introduction about the developer.
@@ -15,9 +16,9 @@ This project is a term assignment for my web development course. It demonstrates
 - CSS3
 - JavaScript
 - React
-- Responsive Design (CSS Grid & Flexbox) for extra credit
+- Responsive Design with CSS Grid & Flexbox for extra credit
 
 ## **How to Access**
-This project is hosted via GitHub Pages. You can view it live at:
+This project is hosted via GitHub Pages.
 (https://github.com/erejack6/CS601.git)]
 
