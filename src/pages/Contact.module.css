@@ -1,0 +1,94 @@
+/* Primary */
+.contactPage {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* Pg Header */
+.contactPage h1 {
+    font-size: var(--header-font-size);
+    font-weight: var(--header-font-weight);
+    color: var(--header-color);
+    text-align: var(--header-text-align);
+    margin-bottom: var(--header-margin-bottom);
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Input, text area, and button */
+.form-input,
+.form-textarea,
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.form-textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Focus and error states */
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.required {
+    color: red;
+}
+
+.error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Submit button */
+.submit-button {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    width: 100%; 
+    margin: 0 auto; 
+    display: block; 
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+    .contactPage {
+        padding: 40px 40px; /* Wider gutters for large vpts*/
+    }
+}

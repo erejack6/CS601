@@ -1,0 +1,125 @@
+/* General page styles */
+.resumePage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+  color: var(--text-color);
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.4;
+}
+
+/* Resume header */
+.resumeHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.resumeHeader h1 {
+  font-size: 2.5rem;
+  color: var(--header-color);
+}
+
+/* Section styles */
+.section {
+  margin-bottom: 24px;
+  padding: 40px 40px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Skills list */
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skillsList li {
+  flex: 1 1 30%;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Work experience section */
+.section {
+  margin: 40px 0;
+}
+
+/* Job title styling */
+.jobTitle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Company info */
+.company {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* List styling */
+ul {
+  margin: 0;
+  padding: 0 20px;
+  list-style-type: disc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Education & certifications */
+.section p {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .resumePage {
+    padding: 0 20px;
+  }
+
+  .skillsList li {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .resumePage {
+    padding: 0 10px;
+  }
+
+  .resumeHeader h1 {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .skillsList li {
+    flex: 1 1 100%;
+  }
+
+  .jobTitle {
+    font-size: 1.2rem;
+  }
+
+  .job ul li {
+    font-size: 0.9rem;
+  }
+}

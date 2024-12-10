@@ -1,0 +1,75 @@
+/* Main styles*/
+.projectPage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--text-color);
+    line-height: 1.8;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Project header */
+.projectHeader {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.projectTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--header-color);
+}
+
+/* Each section*/
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.sectionTitle {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.sectionContent {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.sectionText {
+    flex: 2;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.sectionImage {
+    flex: 1;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sectionContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sectionImage {
+        width: 100%;
+    }
+}

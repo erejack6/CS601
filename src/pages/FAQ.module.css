@@ -1,0 +1,68 @@
+/* Main container */
+.faqPage {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.8;
+}
+
+/* FAQ container */
+.faqContainer {
+    margin-top: 20px;
+}
+
+/* Individual FAQ item */
+.faqItem {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: var(--card-background);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* FAQ question heading */
+.faqItem h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FAQ answer */
+.faqItem p {
+    margin-top: 10px;
+    color: #ccc;
+    text-align: left;
+}
+
+/* Active state */
+.faqItem.active {
+    background-color: #1e1e1e;
+}
+
+/* Hover effect */
+.faqItem:hover {
+    background-color: #2b2b2b;
+}
+
+/* Chevron for expanding/collapsing */
+.faqItem h3 .chevron {
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+}
+
+/* Chevron rotation for active state */
+.faqItem.active h3 .chevron {
+    transform: rotate(-45deg);
+}

@@ -1,0 +1,69 @@
+/* Primary */
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(to bottom, #1B263B, #2E3C4F);
+}
+
+/* Home header */
+.homeHeader h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  color: var(--home-header-color, #007bff);
+  text-align: left;
+}
+
+.homeHeader p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+
+/* Highlighted text */
+.highlight {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* CTA */
+.ctaSection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; 
+  gap: 20px; 
+}
+
+.ctaButton {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #1B263B;
+  background-color: #4CA1AF;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.ctaButton:hover {
+  background-color: var(--hover-color);
+}
+
+/* Contact link */
+.contactLink {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin-top: 20px; /* Add space above the link */
+}
+
+
+.contactLink:hover {
+  color: var(--hover-color);
+}

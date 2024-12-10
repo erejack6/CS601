@@ -1,0 +1,89 @@
+/* General projects page styles */
+.projectsPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.pageHeader {
+    margin-bottom: 30px;
+}
+
+/* Projects container styles */
+.projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Card styles */
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(30% - 24px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.cardContent {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* Button styles */
+.cardButton,
+.disabledButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--accent-color);
+    transition: background-color 0.3s ease;
+}
+
+.cardButton:hover {
+    background-color: var(--hover-color);
+}
+
+.disabledButton {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .card {
+        width: calc(50% - 32px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(100% - 32px);
+    }
+}

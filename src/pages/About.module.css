@@ -1,0 +1,62 @@
+/* Primary*/
+.aboutPage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Pg header, picture, txt */
+.topSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.textContainer h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--header-color);
+    text-align: left;
+    margin-left: 0;
+}
+
+.profilePicture {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.textContainer p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+/* Long paragraph */
+.longParagraph {
+    margin: 40px 0;
+    text-align: left;
+}
+
+.longParagraph p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Signature image */
+.signatureSection {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.signatureImage {
+    width: 200px;
+    height: auto;
+    border-radius: 0;
+    margin-right: 10px;
+}
