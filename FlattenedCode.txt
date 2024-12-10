@@ -15,21 +15,21 @@ import FAQ from './pages/FAQ';
 
 function App() {
     return (
-        <div id="root">
+        <div id="root"> {/* Flex container for full-page layout */}
             <Router>
                 <Masthead />
-                <div className="main-content">
+                <div className="main-content"> {/* Flexible main content area */}
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/projects" element={<Projects />} />
-                        <Route path="/project-a" element={<ProjectA />} />
+                        <Route path="/project-a" element={<ProjectA />} /> {/* Correct route */}
                         <Route path="/project-b" element={<ProjectB />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/resume" element={<Resume />} />
                         <Route path="/store" element={<Store />} />
                         <Route path="/faq" element={<FAQ />} />
-                        <Route path="*" element={<h1>404: Page Not Found</h1>} />
+                        <Route path="*" element={<h1>404: Page Not Found</h1>} /> {/* Fallback route */}
                     </Routes>
                 </div>
                 <Footer />
@@ -50,6 +50,27 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+// File: Button.js
+import React from 'react';
+
+const Button = ({ label, onClick, disabled = false, type = 'button', className = 'button' }) => {
+    console.log(`Button rendered: label=${label}, disabled=${disabled}`); // Debug log
+
+    return (
+        <button
+            type={type}
+            onClick={!disabled ? onClick : undefined} // Ensure click does nothing if disabled
+            disabled={disabled} // HTML attribute to disable the button
+            className={`${className} ${disabled ? 'button-disabled' : ''}`}
+        >
+            {label}
+        </button>
+    );
+};
+
+export default Button;
+
 
 // File: Card.js
 import React from 'react';
@@ -76,16 +97,29 @@ const Footer = () => {
         <footer className="footer">
             <p className="footer-text">Have your people call my people.</p>
             <div className="footer-links">
-                <a href="https://www.linkedin.com/in/emilyrejack/" target="_blank" rel="noopener noreferrer" className="footer-link">
+                {/* LinkedIn */}
+                <a
+                    href="https://www.linkedin.com/in/emilyrejack/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                >
                     <FaLinkedin className="footer-icon" />
                     LinkedIn
                 </a>
-                <a href="https://github.com/erejack6" target="_blank" rel="noopener noreferrer" className="footer-link">
+
+                {/* GitHub */}
+                <a
+                    href="https://github.com/erejack6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                >
                     <FaGithub className="footer-icon" />
                     GitHub
                 </a>
             </div>
-            <p className="footer-bottom">2024 Emily Rejack for Boston University</p>
+            <p className="footer-bottom"> 2024 Emily Rejack for Boston University</p>
         </footer>
     );
 };
@@ -113,7 +147,7 @@ const Masthead = () => {
       <nav className="masthead-nav">
         <div className="masthead-title-container">
           <img
-            src="/vecteezy_alphabet-letters-monogram-logo-er_11203497.jpg"
+            src="/vecteezy_alphabet-letters-monogram-logo-er_11203497.jpg" // Path to your image
             alt="Your Logo"
             className="masthead-logo"
           />
@@ -150,6 +184,9 @@ root.render(
   </React.StrictMode>
 );
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
 
@@ -162,7 +199,7 @@ const About = () => {
         <div className={styles.aboutPage}>
             <div className={styles.topSection}>
                 <img
-                    src="/unnamed.jpg"
+                    src="/unnamed.jpg" // Profile picture
                     alt="Emily's face"
                     className={styles.profilePicture}
                 />
@@ -191,7 +228,7 @@ const About = () => {
             </div>
             <div className={styles.signatureSection}>
                 <img
-                    src="/sig.png"
+                    src="/sig.png" // Signature image
                     alt="Signature"
                     className={styles.signatureImage}
                 />
@@ -230,6 +267,7 @@ const Contact = () => {
       </header>
 
       <form onSubmit={handleSubmit}>
+        {/* Email Field */}
         <div className={styles['form-group']}>
           <label htmlFor="email">Email:</label>
           <input
@@ -244,6 +282,7 @@ const Contact = () => {
           />
         </div>
 
+        {/* Message Field */}
         <div className={styles['form-group']}>
           <label htmlFor="message">Message:</label>
           <textarea
@@ -257,6 +296,7 @@ const Contact = () => {
           ></textarea>
         </div>
 
+        {/* Submit Button */}
         <button type="submit" className={styles['submit-button']}>
           Submit
         </button>
@@ -270,26 +310,27 @@ export default Contact;
 
 // File: FAQ.js
 import React, { useState } from 'react';
-import styles from './FAQ.module.css';
+import styles from './FAQ.module.css'; // Import the CSS Module
 
 const FAQ = () => {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null); // Track the active question
 
     const toggleActive = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
+        setActiveIndex(activeIndex === index ? null : index); // Toggle the active question
     };
 
     const faqs = [
-        { question: "What is your background?", answer: "I’m a Product Designer with a passion for creating intuitive user experiences" },
-        { question: "What services do you offer?", answer: "I offer product design, UI/UX design, wireframing, prototyping, and front-end development." },
-        { question: "What technologies do you use?", answer: "I primarily work with Figma for design, and React, HTML, CSS, JavaScript for development." },
-        { question: "How do I get in touch with you?", answer: "You can reach me through the contact page on this website." },
+        { question: "What is your background?", answer: "I’m a Product Designer with a passion for front-end development. I have experience designing intuitive user interfaces and creating seamless digital experiences." },
+        { question: "What services do you offer?", answer: "I offer product design, UI/UX design, wireframing, prototyping, and front-end development to help businesses bring their ideas to life." },
+        { question: "What technologies do you use?", answer: "I primarily work with Figma for design, and for development, I use HTML, CSS, JavaScript, React, and various modern front-end libraries and frameworks." },
+        { question: "How do I get in touch with you?", answer: "You can reach me through the contact page on this website, or send me an email at emily@example.com for inquiries." },
     ];
 
     return (
         <div className={styles.faqPage}>
             <header className={styles.faqHeader}>
                 <h1>Frequently Asked Questions</h1>
+                <p>Learn more about my background, services, and how we can collaborate!</p>
             </header>
 
             <div className={styles.faqContainer}>
@@ -303,7 +344,7 @@ const FAQ = () => {
                             {faq.question}
                             <span className={styles.chevron}></span>
                         </h3>
-                        {activeIndex === index && <p>{faq.answer}</p>}
+                        {activeIndex === index && <p>{faq.answer}</p>} {/* Only show the answer if the question is active */}
                     </div>
                 ))}
             </div>
@@ -316,7 +357,7 @@ export default FAQ;
 
 // File: Home.js
 import React from 'react';
-import styles from './Home.module.css';
+import styles from './Home.module.css'; // Ensure the CSS file exists in the correct path
 
 const Home = () => {
     return (
@@ -324,15 +365,15 @@ const Home = () => {
             <header className={styles.homeHeader}>
                 <h1>Hello!</h1>
                 <p>
-                    I’m Emily, a <span className={styles.highlight}>Product Designer</span> learning{' '}
-                    <span className={styles.highlight}>front-end development</span>.
+                    I’m Emily, a <span className={styles.highlight}>Product Designer</span> and burgeoning{' '}
+                    <span className={styles.highlight}>front-end developer</span>.
                 </p>
             </header>
             <div className={styles.ctaSection}>
                 <a href="/projects" className={styles.ctaButton}>See My Work</a>
             </div>
             <footer className={styles.homeFooter}>
-                <a href="/contact" className={styles.contactLink}>Contact Me. Thanks.</a>
+                <a href="/contact" className={styles.contactLink}>Don’t Contact Me. Thanks.</a>
             </footer>
         </div>
     );
@@ -343,17 +384,17 @@ export default Home;
 
 // File: ProjectA.js
 import React from 'react';
-import './IndvProjectModule.css'; 
+import './IndvProjectModule.css'; // Correctly connected module
 
 const ProjectA = () => {
     return (
         <div className="projectPage">
-            {/* Project title and subtitle */}
+            {/* Project Title and Subtitle */}
             <header className="projectHeader">
                 <h1 className="projectTitle">Project A</h1>
             </header>
 
-            {/* Problem Statement */}
+            {/* Problem Statement Section */}
             <section className="section">
                 <h2 className="sectionTitle">Problem Statement</h2>
                 <div className="sectionContent">
@@ -371,7 +412,7 @@ const ProjectA = () => {
                 </div>
             </section>
 
-            {/* Research */}
+            {/* Research Section */}
             <section className="section">
                 <h2 className="sectionTitle">Research</h2>
                 <div className="sectionContent">
@@ -389,7 +430,7 @@ const ProjectA = () => {
                 </div>
             </section>
 
-            {/* Design Process*/}
+            {/* Design Process Section */}
             <section className="section">
                 <h2 className="sectionTitle">Design Process</h2>
                 <div className="sectionContent">
@@ -406,7 +447,7 @@ const ProjectA = () => {
                 </div>
             </section>
 
-            {/* Implementation */}
+            {/* Implementation Section */}
             <section className="section">
                 <h2 className="sectionTitle">Implementation</h2>
                 <div className="sectionContent">
@@ -431,17 +472,17 @@ export default ProjectA;
 
 // File: ProjectB.js
 import React from 'react';
-import './IndvProjectModule.css'; 
+import './IndvProjectModule.css'; // Correctly connected module
 
 const ProjectB = () => {
     return (
         <div className="projectPage">
-            {/* Project title and subtitle */}
+            {/* Project Title and Subtitle */}
             <header className="projectHeader">
                 <h1 className="projectTitle">Project B</h1>
             </header>
 
-            {/* Problem statement */}
+            {/* Problem Statement Section */}
             <section className="section">
                 <h2 className="sectionTitle">Problem Statement</h2>
                 <div className="sectionContent">
@@ -459,7 +500,7 @@ const ProjectB = () => {
                 </div>
             </section>
 
-            {/* Research */}
+            {/* Research Section */}
             <section className="section">
                 <h2 className="sectionTitle">Research</h2>
                 <div className="sectionContent">
@@ -477,7 +518,7 @@ const ProjectB = () => {
                 </div>
             </section>
 
-            {/* Design process */}
+            {/* Design Process Section */}
             <section className="section">
                 <h2 className="sectionTitle">Design Process</h2>
                 <div className="sectionContent">
@@ -494,7 +535,7 @@ const ProjectB = () => {
                 </div>
             </section>
 
-            {/* Implementation */}
+            {/* Implementation Section */}
             <section className="section">
                 <h2 className="sectionTitle">Implementation</h2>
                 <div className="sectionContent">
@@ -519,14 +560,13 @@ export default ProjectB;
 
 // File: Projects.js
 import React from 'react';
-import Button from '../components/Button'; 
-import styles from './Projects.module.css'; 
+import styles from './Projects.module.css'; // Import the styles for cards and layout
 
 const Projects = () => {
     const projects = [
-        { title: 'Project A', description: 'Behold the most amazing project ever.', link: '/project-a' },
-        { title: 'Project B', description: 'Behold the worst project ever.', link: '/project-b' },
-        { title: 'Project C', description: 'Get excited.', comingSoon: true },
+        { title: 'Project A', description: 'A great project.', link: '/project-a' },
+        { title: 'Project B', description: 'Another awesome project.', link: '/project-b' },
+        { title: 'Project C', description: 'An amazing project to check out.', link: '/project-c', comingSoon: true },
     ];
 
     return (
@@ -541,18 +581,9 @@ const Projects = () => {
                         <h3 className={styles.cardTitle}>{project.title}</h3>
                         <p className={styles.cardContent}>{project.description}</p>
                         {project.comingSoon ? (
-                            <Button 
-                                label="Coming Soon" 
-                                onClick={() => alert('Stay tuned!')} 
-                                disabled 
-                                className={styles.disabledButton} 
-                            />
+                            <button className={styles.disabledButton} disabled>Coming Soon</button>
                         ) : (
-                            <Button 
-                                label="View Project" 
-                                onClick={() => window.location.href = project.link} 
-                                className={styles.cardButton} 
-                            />
+                            <a href={project.link} className={styles.cardButton}>View Project</a>
                         )}
                     </div>
                 ))}
@@ -566,7 +597,7 @@ export default Projects;
 
 // File: Resume.js
 import React from 'react';
-import styles from './Resume.module.css'; 
+import styles from './Resume.module.css'; // Ensure you have the corresponding CSS module
 
 const Resume = () => {
     return (

@@ -1,15 +1,6 @@
-/* Typescript component */
 import React from 'react';
 
-interface ButtonProps {
-    label: string;
-    onClick: () => void;
-    disabled?: boolean;
-    type?: 'button' | 'submit' | 'reset';
-    className?: string;
-}
-
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
     label,
     onClick,
     disabled = false,
