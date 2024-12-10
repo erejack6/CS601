@@ -1,0 +1,808 @@
+// File: App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Masthead from './components/Masthead';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import ProjectA from './pages/Projects/ProjectA';
+import ProjectB from './pages/Projects/ProjectB';
+import Contact from './pages/Contact';
+import Resume from './pages/Resume';
+import Store from './pages/Store';
+import FAQ from './pages/FAQ';
+
+function App() {
+    return (
+        <div id="root">
+            <Router>
+                <Masthead />
+                <div className="main-content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/project-a" element={<ProjectA />} />
+                        <Route path="/project-b" element={<ProjectB />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/resume" element={<Resume />} />
+                        <Route path="/store" element={<Store />} />
+                        <Route path="/faq" element={<FAQ />} />
+                        <Route path="*" element={<h1>404: Page Not Found</h1>} />
+                    </Routes>
+                </div>
+                <Footer />
+            </Router>
+        </div>
+    );
+}
+
+export default App;
+
+
+// File: App.test.js
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+// File: Card.js
+import React from 'react';
+
+const Card = ({ title, content, footer, style }) => {
+    return (
+        <div className="card" style={style}>
+            <h3 className="card-title">{title}</h3>
+            <p className="card-content">{content}</p>
+            {footer && <div className="card-footer">{footer}</div>}
+        </div>
+    );
+};
+
+export default Card;
+
+
+// File: Footer.js
+import React from 'react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+
+const Footer = () => {
+    return (
+        <footer className="footer">
+            <p className="footer-text">Have your people call my people.</p>
+            <div className="footer-links">
+                <a href="https://www.linkedin.com/in/emilyrejack/" target="_blank" rel="noopener noreferrer" className="footer-link">
+                    <FaLinkedin className="footer-icon" />
+                    LinkedIn
+                </a>
+                <a href="https://github.com/erejack6" target="_blank" rel="noopener noreferrer" className="footer-link">
+                    <FaGithub className="footer-icon" />
+                    GitHub
+                </a>
+            </div>
+            <p className="footer-bottom">2024 Emily Rejack for Boston University</p>
+        </footer>
+    );
+};
+
+export default Footer;
+
+
+// File: Masthead.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Masthead = () => {
+  const links = [
+    { name: 'Home', path: '/' },
+    { name: 'About Me', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Resume', path: '/resume' },
+    { name: 'Hire Me', path: '/store' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
+  return (
+    <header className="masthead">
+      <nav className="masthead-nav">
+        <div className="masthead-title-container">
+          <img
+            src="/vecteezy_alphabet-letters-monogram-logo-er_11203497.jpg"
+            alt="Your Logo"
+            className="masthead-logo"
+          />
+          <h1 className="masthead-title">Emily Rejack</h1>
+        </div>
+        <ul className="masthead-links">
+          {links.map((link) => (
+            <li key={link.name}>
+              <Link to={link.path} className="masthead-link">
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Masthead;
+
+
+// File: index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './App.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+
+
+// File: About.js
+import React from 'react';
+import styles from './About.module.css';
+
+const About = () => {
+    return (
+        <div className={styles.aboutPage}>
+            <div className={styles.topSection}>
+                <img
+                    src="/unnamed.jpg"
+                    alt="Emily's face"
+                    className={styles.profilePicture}
+                />
+                <div className={styles.textContainer}>
+                    <h1>Hello! I am Emily Rejack</h1>
+                    <p>
+                        Hello from Austin, Texas! My name is Emily, and I work as a product designer 
+                        at Dell. My journey began with a degree in Industrial Engineering, leading to 
+                        my first role at Dell as an IT Product Manager. During my first year, I attended 
+                        a company-sponsored Product Design Academy, which solidified my passion for design. 
+                        My industrial engineering background complements the analytical aspects of design, 
+                        though I wanted to gain more technical skills. This inspired me to join the MSSD 
+                        program at BU.
+                    </p>
+                    <p>
+                        Outside of work, I’m an adventurer at heart, always curious to explore the world. 
+                        I love traveling, attending concerts, and enjoying the outdoors. Highlights this 
+                        year include an Alaskan cruise, the F1 Race at COTA, and Texas Stars (AHL) games.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim 
+                        in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor 
+                        interdum nulla, ut commodo diam libero vitae erat.
+                    </p>
+                </div>
+            </div>
+            <div className={styles.signatureSection}>
+                <img
+                    src="/sig.png"
+                    alt="Signature"
+                    className={styles.signatureImage}
+                />
+            </div>
+        </div>
+    );
+};
+
+export default About;
+
+
+// File: Contact.js
+import React, { useState } from 'react';
+import styles from './Contact.module.css';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Form submitted!');
+  };
+
+  return (
+    <div className={styles.contactPage}>
+      <header className={styles.pageHeader}>
+        <h1>Contact Me</h1>
+      </header>
+
+      <form onSubmit={handleSubmit}>
+        <div className={styles['form-group']}>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className={styles['form-input']}
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your email"
+            required
+          />
+        </div>
+
+        <div className={styles['form-group']}>
+          <label htmlFor="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            className={styles['form-textarea']}
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your message"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" className={styles['submit-button']}>
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Contact;
+
+
+// File: FAQ.js
+import React, { useState } from 'react';
+import styles from './FAQ.module.css';
+
+const FAQ = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const toggleActive = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
+    const faqs = [
+        { question: "What is your background?", answer: "I’m a Product Designer with a passion for creating intuitive user experiences" },
+        { question: "What services do you offer?", answer: "I offer product design, UI/UX design, wireframing, prototyping, and front-end development." },
+        { question: "What technologies do you use?", answer: "I primarily work with Figma for design, and React, HTML, CSS, JavaScript for development." },
+        { question: "How do I get in touch with you?", answer: "You can reach me through the contact page on this website." },
+    ];
+
+    return (
+        <div className={styles.faqPage}>
+            <header className={styles.faqHeader}>
+                <h1>Frequently Asked Questions</h1>
+            </header>
+
+            <div className={styles.faqContainer}>
+                {faqs.map((faq, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.faqItem} ${activeIndex === index ? styles.active : ''}`}
+                        onClick={() => toggleActive(index)}
+                    >
+                        <h3>
+                            {faq.question}
+                            <span className={styles.chevron}></span>
+                        </h3>
+                        {activeIndex === index && <p>{faq.answer}</p>}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default FAQ;
+
+
+// File: Home.js
+import React from 'react';
+import styles from './Home.module.css';
+
+const Home = () => {
+    return (
+        <div className={styles.homePage}>
+            <header className={styles.homeHeader}>
+                <h1>Hello!</h1>
+                <p>
+                    I’m Emily, a <span className={styles.highlight}>Product Designer</span> learning{' '}
+                    <span className={styles.highlight}>front-end development</span>.
+                </p>
+            </header>
+            <div className={styles.ctaSection}>
+                <a href="/projects" className={styles.ctaButton}>See My Work</a>
+            </div>
+            <footer className={styles.homeFooter}>
+                <a href="/contact" className={styles.contactLink}>Contact Me. Thanks.</a>
+            </footer>
+        </div>
+    );
+};
+
+export default Home;
+
+
+// File: ProjectA.js
+import React from 'react';
+import './IndvProjectModule.css'; 
+
+const ProjectA = () => {
+    return (
+        <div className="projectPage">
+            {/* Project title and subtitle */}
+            <header className="projectHeader">
+                <h1 className="projectTitle">Project A</h1>
+            </header>
+
+            {/* Problem Statement */}
+            <section className="section">
+                <h2 className="sectionTitle">Problem Statement</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget
+                        tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Vivamus egestas euismod
+                        arcu, ut imperdiet magna efficitur a. Integer nec magna libero. Aenean tincidunt lectus
+                        id sapien vehicula, ut egestas justo tristique.
+                    </p>
+                    <img
+                        src="/vaea-garrido-gxsyIKe83N0-unsplash.jpg"
+                        alt="Problem statement image. A problematic cat."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Research */}
+            <section className="section">
+                <h2 className="sectionTitle">Research</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur
+                        tincidunt non ligula sed scelerisque. Vestibulum ante ipsum primis in faucibus orci
+                        luctus et ultrices posuere cubilia curae; Suspendisse potenti. Sed at orci ut arcu
+                        pellentesque dapibus non vitae arcu.
+                    </p>
+                    <img
+                        src="/alexey-turenkov-NEwe0UGsTfY-unsplash.jpg"
+                        alt="Research image. Lady detective in a scary setting."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Design Process*/}
+            <section className="section">
+                <h2 className="sectionTitle">Design Process</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis dolor vitae
+                        magna pretium, id ultricies ipsum aliquet. Etiam quis neque vitae urna consequat
+                        consequat. Suspendisse potenti. Proin ac libero arcu. Cras nec fermentum eros.
+                    </p>
+                    <img
+                        src="/charlie-conspiracy-470x3102x.webp"
+                        alt="Design process image. The design process will make you crazy."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Implementation */}
+            <section className="section">
+                <h2 className="sectionTitle">Implementation</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, purus a
+                        aliquet viverra, justo eros convallis nisi, ac fringilla magna arcu quis lorem. Sed
+                        aliquet venenatis urna nec hendrerit. Mauris vitae orci vitae quam faucibus egestas.
+                    </p>
+                    <img
+                        src="/processingly-2pUP1Ts1bmo-unsplash.jpg"
+                        alt="Implementation Image. Woman meditating. Peace at last."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default ProjectA;
+
+
+// File: ProjectB.js
+import React from 'react';
+import './IndvProjectModule.css'; 
+
+const ProjectB = () => {
+    return (
+        <div className="projectPage">
+            {/* Project title and subtitle */}
+            <header className="projectHeader">
+                <h1 className="projectTitle">Project B</h1>
+            </header>
+
+            {/* Problem statement */}
+            <section className="section">
+                <h2 className="sectionTitle">Problem Statement</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget
+                        tellus tristique bibendum. Donec rutrum sed sem quis venenatis. Vivamus egestas euismod
+                        arcu, ut imperdiet magna efficitur a. Integer nec magna libero. Aenean tincidunt lectus
+                        id sapien vehicula, ut egestas justo tristique.
+                    </p>
+                    <img
+                        src="/problem-solving.png"
+                        alt="Problem statement image. Confused man."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Research */}
+            <section className="section">
+                <h2 className="sectionTitle">Research</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur
+                        tincidunt non ligula sed scelerisque. Vestibulum ante ipsum primis in faucibus orci
+                        luctus et ultrices posuere cubilia curae; Suspendisse potenti. Sed at orci ut arcu
+                        pellentesque dapibus non vitae arcu.
+                    </p>
+                    <img
+                        src="/1701161595952.png"
+                        alt="Research image. Magnifying glass"
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Design process */}
+            <section className="section">
+                <h2 className="sectionTitle">Design Process</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean facilisis dolor vitae
+                        magna pretium, id ultricies ipsum aliquet. Etiam quis neque vitae urna consequat
+                        consequat. Suspendisse potenti. Proin ac libero arcu. Cras nec fermentum eros.
+                    </p>
+                    <img
+                        src="/charlie-conspiracy-470x3102x.webp"
+                        alt="Design process image. The design process will make you crazy."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+
+            {/* Implementation */}
+            <section className="section">
+                <h2 className="sectionTitle">Implementation</h2>
+                <div className="sectionContent">
+                    <p className="sectionText">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, purus a
+                        aliquet viverra, justo eros convallis nisi, ac fringilla magna arcu quis lorem. Sed
+                        aliquet venenatis urna nec hendrerit. Mauris vitae orci vitae quam faucibus egestas.
+                    </p>
+                    <img
+                        src="/istockphoto-1041512964-612x612.jpg"
+                        alt="Implementation image. Business woman celebrating."
+                        className="sectionImage"
+                    />
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default ProjectB;
+
+
+// File: Projects.js
+import React from 'react';
+import Button from '../components/Button'; 
+import styles from './Projects.module.css'; 
+
+const Projects = () => {
+    const projects = [
+        { title: 'Project A', description: 'Behold the most amazing project ever.', link: '/project-a' },
+        { title: 'Project B', description: 'Behold the worst project ever.', link: '/project-b' },
+        { title: 'Project C', description: 'Get excited.', comingSoon: true },
+    ];
+
+    return (
+        <div className={styles.projectsPage}>
+            <header className={styles.pageHeader}>
+                <h1>My Projects</h1>
+            </header>
+
+            <div className={styles.projectsContainer}>
+                {projects.map((project, index) => (
+                    <div key={index} className={styles.card}>
+                        <h3 className={styles.cardTitle}>{project.title}</h3>
+                        <p className={styles.cardContent}>{project.description}</p>
+                        {project.comingSoon ? (
+                            <Button 
+                                label="Coming Soon" 
+                                onClick={() => alert('Stay tuned!')} 
+                                disabled 
+                                className={styles.disabledButton} 
+                            />
+                        ) : (
+                            <Button 
+                                label="View Project" 
+                                onClick={() => window.location.href = project.link} 
+                                className={styles.cardButton} 
+                            />
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Projects;
+
+
+// File: Resume.js
+import React from 'react';
+import styles from './Resume.module.css'; 
+
+const Resume = () => {
+    return (
+        <div className={styles.resumePage}>
+            <header className={styles.resumeHeader}>
+                <h1>My Resume</h1>
+            </header>
+
+            {/* Summary Section */}
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Summary</h2>
+                <p>
+                    Skilled user experience practitioner with a multidisciplinary background in Product Design, Product Management, and Industrial Engineering. Highly data-driven with demonstrated expertise in quantitative and qualitative analytics to optimize the user experience and drive design strategy.
+                </p>
+            </section>
+
+            {/* Skills Section */}
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Skills</h2>
+                <ul className={styles.skillsList}>
+                    <li>Service Design</li>
+                    <li>User-centered Design (UCD)</li>
+                    <li>Generative Research</li>
+                    <li>User Research & Usability Studies</li>
+                    <li>Data Synthesis</li>
+                    <li>Quantitative & Qualitative Analysis</li>
+                    <li>Wireframes & Prototypes</li>
+                    <li>Design Strategy</li>
+                    <li>Responsive Web Design (RWD)</li>
+                </ul>
+            </section>
+
+            {/* Work Experience Section */}
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Work Experience</h2>
+                <div className={styles.job}>
+                    <h3 className={styles.jobTitle}>
+                        Senior Product Designer <span className={styles.jobDate}>2021–Present</span>
+                    </h3>
+                    <p className={styles.jobCompany}>Acme Corp, Boston, MA</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+                        <li>Nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
+                </div>
+                <div className={styles.job}>
+                    <h3 className={styles.jobTitle}>
+                        UX Researcher <span className={styles.jobDate}>2018–2021</span>
+                    </h3>
+                    <p className={styles.jobCompany}>DesignHub, Austin, TX</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+                        <li>Nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
+                </div>
+                <div className={styles.job}>
+                    <h3 className={styles.jobTitle}>
+                        Junior UX Designer <span className={styles.jobDate}>2016–2018</span>
+                    </h3>
+                    <p className={styles.jobCompany}>Creative Solutions, Dallas, TX</p>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+                        <li>Nisi ut aliquip ex ea commodo consequat.</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Education Section */}
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Education</h2>
+                <p><strong>Master of Science in Software Development</strong>, Boston University, Expected 2025</p>
+                <p><strong>Bachelor of Science in Industrial Engineering</strong>, Texas State University, Magna Cum Laude, 2019</p>
+            </section>
+
+            {/* Certifications Section */}
+            <section className={styles.section}>
+                <h2 className={styles.sectionTitle}>Certifications</h2>
+                <p><strong>Lean Green Belt</strong> | Institute of Industrial and Systems Engineers, 2018</p>
+                <p><strong>Six Sigma Green Belt</strong> | Institute of Industrial and Systems Engineers, 2018</p>
+            </section>
+
+        </div>
+    );
+};
+
+export default Resume;
+
+
+// File: Store.js
+import React, { useState } from 'react';
+import '../App.css';
+import styles from './Store.module.css';
+
+const Store = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const [draggedItem, setDraggedItem] = useState(null);
+
+    const initialItems = [
+        {
+            id: 1,
+            name: 'UI/UX Design Consultation',
+            description: 'Craft visually appealing and user-friendly digital interfaces.',
+            price: 500,
+            image: '/3dicons-chat-front-color.png',
+        },
+        {
+            id: 2,
+            name: 'Custom Website Design',
+            description: 'Tailored website creation for unique brand identity.',
+            price: 2000,
+            image: '/3dicons-computer-front-color.png',
+        },
+        {
+            id: 3,
+            name: 'Life Choices Flowchart',
+            description: 'Made some questionable life choices? Let’s map it out!',
+            price: 150,
+            image: '/3dicons-glass-front-color.png',
+        },
+        {
+            id: 4,
+            name: 'Professional Cat Photoshopping',
+            description: 'Boots deserves a regal portrait. I can help with that.',
+            price: 50,
+            image: '/3dicons-brush-front-color.png',
+        },
+    ];
+
+    const [availableItems, setAvailableItems] = useState(initialItems);
+
+    const handleDragStart = (item) => setDraggedItem(item);
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        if (draggedItem) {
+            setCartItems([...cartItems, { ...draggedItem, quantity: 1 }]);
+            setAvailableItems(availableItems.filter((item) => item.id !== draggedItem.id));
+        }
+    };
+
+    const allowDrop = (e) => e.preventDefault();
+
+    const removeFromCart = (id) => {
+        const removedItem = cartItems.find((item) => item.id === id);
+        setAvailableItems([...availableItems, removedItem]);
+        setCartItems(cartItems.filter((item) => item.id !== id));
+    };
+
+    return (
+        <div className={styles.storePage}>
+            <header className={styles.storeHeader}>
+                <h1>Build a Service Package</h1>
+                <p className={styles.subheader}>Drag and drop services into your cart below.</p>
+            </header>
+
+            <div className={styles.storeContainer}>
+                <section className={styles.itemsSection}>
+                    <h2>Available Services</h2>
+                    {availableItems.map((item) => (
+                        <div
+                            key={item.id}
+                            className={styles.itemCard}
+                            draggable
+                            onDragStart={() => handleDragStart(item)}
+                        >
+                            <img src={item.image} alt={item.name} className={styles.itemImage} />
+                            <div className={styles.itemDetails}>
+                                <h4>{item.name}</h4>
+                                <p>{item.description}</p>
+                                <p>${item.price}</p>
+                            </div>
+                        </div>
+                    ))}
+                </section>
+
+                <section
+                    className={styles.cartSection}
+                    onDrop={handleDrop}
+                    onDragOver={allowDrop}
+                >
+                    <h2>Your Cart</h2>
+                    {cartItems.map((item) => (
+                        <div className={styles.cartItem} key={item.id}>
+                            <img src={item.image} alt={item.name} className={styles.itemImage} />
+                            <div className={styles.itemDetails}>
+                                <h4>{item.name}</h4>
+                                <p>Qty: {item.quantity}</p>
+                                <p>Total: ${item.price * item.quantity}</p>
+                            </div>
+                            <button
+                                className={styles.removeButton}
+                                onClick={() => removeFromCart(item.id)}
+                            >
+                                Remove
+                            </button>
+                        </div>
+                    ))}
+                    <p className={styles.cartSummary}>
+                        Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}
+                    </p>
+                </section>
+            </div>
+        </div>
+    );
+};
+
+export default Store;
+
+
+// File: reportWebVitals.js
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+
+// File: setupTests.js
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+
